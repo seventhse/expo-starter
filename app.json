@@ -13,6 +13,9 @@
       "supportsTablet": true,
       "userInterfaceStyle": "automatic"
     },
+    "extra": {
+      "supportsRTL": true
+    },
     "plugins": [
       "expo-router",
       [
@@ -24,6 +27,14 @@
           "backgroundColor": "#ffffff",
           "dark": {
             "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "expo-localization",
+        {
+          "supportsTablet": {
+            "ios": ["en", "zh"]
           }
         }
       ]
