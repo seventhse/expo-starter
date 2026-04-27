@@ -9,9 +9,11 @@
   },
   "scripts": {
     "start": "expo start",
-    "reset-project": "node ./scripts/reset-project.js",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
+    "android": "expo run:android",
+    "android:expo": "expo start --android",
+    "ios:expo": "expo start --ios",
+    "ios": "expo run:ios",
+    "ios:prebuild": "expo prebuild --platform ios",
     "web": "expo start --web",
     "lint": "expo lint",
     "postinstall": "bunx simple-git-hooks"
@@ -21,6 +23,9 @@
     "@react-navigation/bottom-tabs": "^7.15.10",
     "@react-navigation/elements": "^2.9.15",
     "@react-navigation/native": "^7.2.2",
+    "@shopify/react-native-skia": "^2.6.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "expo": "~55.0.17",
     "expo-constants": "~55.0.15",
     "expo-font": "~55.0.6",
@@ -33,25 +38,33 @@
     "expo-symbols": "~55.0.7",
     "expo-system-ui": "~55.0.16",
     "expo-web-browser": "~55.0.14",
+    "nativewind": "^5.0.0-preview.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "react-native": "0.83.6",
+    "react-native-css": "^3.0.7",
     "react-native-gesture-handler": "~2.30.0",
     "react-native-reanimated": "4.2.1",
     "react-native-safe-area-context": "~5.6.2",
     "react-native-screens": "~4.23.0",
     "react-native-web": "~0.21.2",
-    "react-native-worklets": "0.7.4"
+    "react-native-worklets": "0.7.4",
+    "tailwind-merge": "^3.5.0",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.4",
     "@types/react": "~19.2.14",
     "eslint": "^9.39.4",
     "eslint-config-expo": "~55.0.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "lint-staged": "^16.4.0",
+    "postcss": "^8.5.12",
     "prettier": "^3.8.3",
+    "prettier-plugin-tailwindcss": "^0.7.3",
     "simple-git-hooks": "^2.13.1",
+    "tailwindcss": "^4.2.4",
     "typescript": "~5.9.3"
   },
   "simple-git-hooks": {
@@ -69,5 +82,8 @@
   "trustedDependencies": [
     "simple-git-hooks"
   ],
+  "overrides": {
+    "lightningcss": "1.30.1"
+  },
   "packageManager": "bun@1.3.2"
 }

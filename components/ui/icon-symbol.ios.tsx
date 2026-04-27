@@ -1,5 +1,6 @@
+import { Colors } from '@/constants/theme'
 import { SymbolView, SymbolViewProps, SymbolWeight } from 'expo-symbols'
-import { StyleProp, ViewStyle } from 'react-native'
+import { StyleProp, useColorScheme, ViewStyle } from 'react-native'
 
 export function IconSymbol({
   name,
@@ -10,10 +11,19 @@ export function IconSymbol({
 }: {
   name: SymbolViewProps['name']
   size?: number
-  color: string
+  color?: string
   style?: StyleProp<ViewStyle>
   weight?: SymbolWeight
 }) {
+  const colorSchema = useColorScheme()
+
+  if (color === undefined) {
+    color =
+      colorSchema === 'dark'
+        ? Colors.dark['--color-foreground']
+        : Colors.light['--color-foreground']
+  }
+
   return (
     <SymbolView
       weight={weight}

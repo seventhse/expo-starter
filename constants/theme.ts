@@ -5,27 +5,57 @@
 
 import { Platform } from 'react-native'
 
-const tintColorLight = '#0a7ea4'
-const tintColorDark = '#fff'
-
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
-    tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
-    tabIconSelected: tintColorLight,
+    background: '#f8fafc',
+    foreground: '#1e293b',
+
+    card: '#ffffff',
+    'card-foreground': '#1e293b',
+
+    primary: '#6366f1',
+    'primary-foreground': '#ffffff',
+
+    secondary: '#e5e7eb',
+    'secondary-foreground': '#374151',
+
+    muted: '#f3f4f6',
+    'muted-foreground': '#6b7280',
+
+    accent: '#e0e7ff',
+    'accent-foreground': '#374151',
+
+    destructive: '#ef4444',
+    'destructive-foreground': '#ffffff',
+
+    border: '#d1d5db',
+    input: '#d1d5db',
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
-    tint: tintColorDark,
-    icon: '#9BA1A6',
-    tabIconDefault: '#9BA1A6',
-    tabIconSelected: tintColorDark,
+    background: '#0f172a',
+    foreground: '#e2e8f0',
+
+    card: '#1e293b',
+    'card-foreground': '#e2e8f0',
+
+    primary: '#818cf8',
+    'primary-foreground': '#0f172a',
+
+    secondary: '#2d3748',
+    'secondary-foreground': '#d1d5db',
+
+    muted: '#152032',
+    'muted-foreground': '#9ca3af',
+
+    accent: '#374151',
+    'accent-foreground': '#d1d5db',
+
+    destructive: '#ef4444',
+    'destructive-foreground': '#0f172a',
+    border: '#4b5563',
+    input: '#4b5563',
   },
-}
+} as const
 
 export const Fonts = Platform.select({
   ios: {

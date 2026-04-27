@@ -1,11 +1,16 @@
 // Fallback for using MaterialIcons on Android and web.
 
+import { Colors } from '@/constants/theme'
 import MaterialIcons from '@expo/vector-icons/MaterialIcons'
-import { SymbolWeight, SymbolViewProps } from 'expo-symbols'
+import { SymbolViewProps, SymbolWeight } from 'expo-symbols'
 import { ComponentProps } from 'react'
-import { OpaqueColorValue, type StyleProp, type TextStyle } from 'react-native'
+import { OpaqueColorValue, useColorScheme, type StyleProp, type TextStyle } from 'react-native'
 
-type IconMapping = Record<SymbolViewProps['name'], ComponentProps<typeof MaterialIcons>['name']>
+type IconMapping = Record<
+  // @ts-ignore
+  SymbolViewProps['name'],
+  ComponentProps<typeof MaterialIcons>['name']
+>
 type IconSymbolName = keyof typeof MAPPING
 
 /**
@@ -33,9 +38,26 @@ export function IconSymbol({
 }: {
   name: IconSymbolName
   size?: number
-  color: string | OpaqueColorValue
+  color?: string | OpaqueColorValue
   style?: StyleProp<TextStyle>
   weight?: SymbolWeight
 }) {
-  return <MaterialIcons color={color} size={size} name={MAPPING[name]} style={style} />
+  const colorSchema = useColorScheme()
+
+  if (color === undefined) {
+    color =
+      colorSchema === 'dark'
+        ? Colors.dark['--color-foreground']
+        : Colors.light['--color-foreground']
+  }
+
+  return (
+    <MaterialIcons
+      color={color}
+      size={size}
+      // @ts-ignore
+      name={MAPPING[name]}
+      style={style}
+    />
+  )
 }
